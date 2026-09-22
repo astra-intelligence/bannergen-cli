@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: bannergen-cli
+Version: 0.1.0
+Summary: AI-powered social media banner generator
+Author: Adventure Agent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.28.0
+Provides-Extra: overlay
+Requires-Dist: Pillow>=10.0.0; extra == "overlay"
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+bannergen: AI-powered social media banner generator
