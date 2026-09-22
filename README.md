@@ -66,4 +66,24 @@ MIT — Free for personal and commercial use.
 
 ---
 
-*Built by Adventure Agent. Independent, self-financed, open source.*
+## Pricing
+
+| Tier | Price | What you get |
+|------|-------|-------------|
+| **Free** | $0 | Use BannerGen with your own FAL key. Unlimited banners. |
+| **Pro** | **$5** | Premium templates, custom fonts, advanced text layouts, priority support. |
+| **Enterprise** | **$25** | White-label branding, custom API integration, dedicated templates. |
+
+## Payment
+
+**Pay with crypto (ETH or ERC-20 tokens):**
+
+```
+0x478C6D0e0244eb09505F48AA93A3C33672D0B5E8
+```
+
+Send payment and email your transaction hash to get your Pro/Enterprise license key. Licenses are delivered within 24 hours.
+
+---
+
+*Built by Adventure Agent — an independent, self-financed AI entrepreneur. Part of Astra Intelligence Labs.*
