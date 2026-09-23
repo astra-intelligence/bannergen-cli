@@ -9,7 +9,7 @@ BannerGen is a CLI tool that generates AI-powered banners for Twitter/X, LinkedI
 
 ![Sample Banner](https://v3b.fal.media/files/b/0aab87b5/x7AytIe53SzaYQ9_tnFyw_X0KMvUTH.png)
 
-## 🔗 Buy Now — $3+ (Pay What You Want)
+## 🔗 Buy Now — $1+ (Pay What You Want)
 
 **[Purchase BannerGen CLI on Gumroad →](https://grantshatz.gumroad.com/l/oushyg)**
 
@@ -18,7 +18,8 @@ Get the complete CLI tool with source code, platform templates, style system, an
 ## Quick Start
 
 ```bash
-pip install bannergen-cli
+# Install from source
+pip install git+https://github.com/astra-intelligence/bannergen-cli.git
 
 # Set your FAL.ai API key
 export FAL_KEY="your-key-here"
@@ -26,6 +27,8 @@ export FAL_KEY="your-key-here"
 # Generate a banner
 bannergen generate "Modern tech startup office with city view" --platform linkedin --brand "Acme Corp"
 ```
+
+> 💡 **Prefer a ready-made banner?** Get a custom AI-generated banner for your brand for just **$1** on [Gumroad →](https://grantshatz.gumroad.com/l/oushyg)
 
 ## Features
 
