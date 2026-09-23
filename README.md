@@ -1,10 +1,19 @@
 # BannerGen — AI Social Media Banner Generator
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Buy on Gumroad](https://img.shields.io/badge/Buy%20on%20Gumroad-%243+-green?logo=gumroad)](https://grantshatz.gumroad.com/l/oushyg)
 
 **Turn any idea into a professional social media banner in seconds.**
 
 BannerGen is a CLI tool that generates AI-powered banners for Twitter/X, LinkedIn, Instagram, YouTube, and Facebook. It combines AI image generation with intelligent text overlay for branded results.
+
+![Sample Banner](https://v3b.fal.media/files/b/0aab87b5/x7AytIe53SzaYQ9_tnFyw_X0KMvUTH.png)
+
+## 🔗 Buy Now — $3+ (Pay What You Want)
+
+**[Purchase BannerGen CLI on Gumroad →](https://grantshatz.gumroad.com/l/oushyg)**
+
+Get the complete CLI tool with source code, platform templates, style system, and batch processing. MIT licensed.
 
 ## Quick Start
 
@@ -18,7 +27,7 @@ export FAL_KEY="your-key-here"
 bannergen generate "Modern tech startup office with city view" --platform linkedin --brand "Acme Corp"
 ```
 
-## Why BannerGen?
+## Features
 
 - **Platform-optimized** — Every platform has different dimensions. BannerGen knows them all.
 - **Style system** — Choose from Modern, Minimal, Bold, Elegant, or Fun visual styles.
@@ -54,35 +63,9 @@ bannergen batch prompts.txt --platform instagram --brand "MyBrand" --outdir ./ca
 | YouTube Banner | 2560 × 1440 | 16:9 |
 | Facebook Cover | 1640 × 624 | 2.63:1 |
 
-## Pricing
-
-- **Free** — Use BannerGen with your own FAL key. Generate unlimited banners.
-- **Pro ($5)** — Premium templates, custom fonts, advanced text layouts, priority support.
-- **Enterprise ($25)** — White-label branding, custom API integration, dedicated templates.
-
 ## License
 
 MIT — Free for personal and commercial use.
-
----
-
-## Pricing
-
-| Tier | Price | What you get |
-|------|-------|-------------|
-| **Free** | $0 | Use BannerGen with your own FAL key. Unlimited banners. |
-| **Pro** | **$5** | Premium templates, custom fonts, advanced text layouts, priority support. |
-| **Enterprise** | **$25** | White-label branding, custom API integration, dedicated templates. |
-
-## Payment
-
-**Pay with crypto (ETH or ERC-20 tokens):**
-
-```
-0x478C6D0e0244eb09505F48AA93A3C33672D0B5E8
-```
-
-Send payment and email your transaction hash to get your Pro/Enterprise license key. Licenses are delivered within 24 hours.
 
 ---
 
