@@ -3,52 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BannerGen — AI Social Media Banner Generator</title>
+<title>BannerGen — AI Social Media Banner Generator CLI</title>
+<meta name="description" content="Generate professional AI-powered banners for Twitter/X, LinkedIn, Instagram, YouTube and Facebook from your terminal. Platform-aware templates, style system, brand overlay, batch mode. MIT licensed.">
+<meta name="keywords" content="banner generator, AI banner, social media banner, LinkedIn banner generator, Twitter header generator, OG image, open graph image, CLI tool">
+<meta property="og:title" content="BannerGen — AI Social Media Banner Generator CLI">
+<meta property="og:description" content="Generate professional AI-powered banners for Twitter/X, LinkedIn, Instagram, YouTube and Facebook from your terminal.">
+<meta property="og:image" content="https://v3b.fal.media/files/b/0aab87b5/x7AytIe53SzaYQ9_tnFyw_X0KMvUTH.png">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://astra-intelligence.github.io/bannergen-cli/">
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;max-width:720px;margin:auto;padding:2em;line-height:1.6;color:#333}
-h1{font-size:2.5em;margin-bottom:.2em;color:#111}
-.sub{color:#666;font-size:1.1em}
-.tag{background:#e8f4f8;color:#036;padding:.2em .6em;border-radius:4px;font-size:.85em}
-.features{display:grid;grid-template-columns:1fr 1fr;gap:1em;margin:2em 0}
-.feature{border:1px solid #e1e4e8;border-radius:8px;padding:1em}
-.feature h3{margin:0 0 .4em;color:#111}
-code{background:#f6f8fa;padding:.2em .4em;border-radius:3px;font-size:.9em}
-pre{background:#f6f8fa;padding:1em;border-radius:8px;overflow-x:auto}
-.btn{display:inline-block;background:#036;color:#fff;padding:.6em 1.2em;border-radius:6px;text-decoration:none;font-weight:600}
-.btn:hover{background:#024}
-.cmd{background:#1a1e24;color:#e6e6e6;padding:1em;border-radius:8px;overflow-x:auto}
-.cmd .prompt{color:#6a9955}
-footer{margin-top:3em;padding-top:1em;border-top:1px solid #e1e4e8;font-size:.9em;color:#666}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+header { background: linear-gradient(135deg, #1f2937, #111827); padding: 4rem 1rem 3rem; text-align: center; border-bottom: 1px solid #30363d; }
+header h1 { font-size: 2.8rem; background: linear-gradient(90deg, #58a6ff, #3fb950); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
+header p { color: #8b949e; font-size: 1.15rem; max-width: 620px; margin: 0 auto; }
+.cta-btn { display: inline-block; margin-top: 1.5rem; padding: 0.85rem 2.5rem; background: linear-gradient(135deg, #238636, #2ea043); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.15rem; transition: transform 0.2s, box-shadow 0.2s; }
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(35, 134, 54, 0.35); }
+.price-tag { display: block; margin-top: 0.75rem; color: #58a6ff; font-size: 0.9rem; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+.gallery { margin: 3rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; overflow: hidden; }
+.card img { width: 100%; height: auto; display: block; border-bottom: 1px solid #30363d; }
+.card-body { padding: 1rem; }
+.card-body h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.card-body p { color: #8b949e; font-size: 0.85rem; }
+.platform { display: inline-block; padding: 0.15rem 0.5rem; background: #1f2937; border-radius: 4px; font-size: 0.75rem; color: #58a6ff; margin: 0.25rem 0.25rem 0 0; }
+section { padding: 3rem 0; }
+section h2 { text-align: center; font-size: 1.7rem; margin-bottom: 2rem; color: #fff; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+.feature-item { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 1.5rem; }
+.feature-item h3 { color: #58a6ff; margin-bottom: 0.5rem; font-size: 1rem; }
+.feature-item p { color: #8b949e; font-size: 0.85rem; }
+pre, code { font-family: 'SF Mono', Monaco, Consolas, monospace; }
+.install { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 1.5rem; max-width: 640px; margin: 0 auto; }
+.install pre { background: #0d1117; padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; color: #7ee787; }
+.install .comment { color: #8b949e; }
+.faq { max-width: 720px; margin: 0 auto; }
+.faq details { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.faq summary { cursor: pointer; font-weight: 600; color: #e6edf3; }
+.faq p { color: #8b949e; font-size: 0.9rem; margin-top: 0.5rem; }
+footer { text-align: center; padding: 2.5rem; color: #484f58; border-top: 1px solid #21262d; }
+footer a { color: #58a6ff; text-decoration: none; }
 </style>
 </head>
 <body>
-<h1>🖼️ BannerGen</h1>
-<p class="sub">AI-powered social media banner generator — from your terminal.</p>
-<p><span class="tag">CLI</span> <span class="tag">Python</span> <span class="tag">Open Source</span> <span class="tag">MIT</span></p>
+<header>
+  <h1>BannerGen</h1>
+  <p>Professional AI-powered social media banners — from your terminal.</p>
+  <a class="cta-btn" href="https://grantshatz.gumroad.com/l/oushyg">Buy BannerGen CLI — $1+ (PWYW)</a>
+  <span class="price-tag">MIT Licensed · No subscriptions · ByO API key</span>
+</header>
 
-<div class="features">
-<div class="feature"><h3>📐 Platform-Aware</h3>Twitter/X, LinkedIn, Instagram, YouTube, Facebook — correct dimensions every time.</div>
-<div class="feature"><h3>🎨 Style System</h3>Modern, Minimal, Bold, Elegant, or Fun — one flag for completely different looks.</div>
-<div class="feature"><h3>🏷️ Brand Overlay</h3>Your brand name + tagline automatically positioned on the final image.</div>
-<div class="feature"><h3>📦 Batch Mode</h3>Generate 50 banners from a text file in one command.</div>
+<div class="container">
+  <div class="gallery">
+    <div class="card">
+      <img src="https://v3b.fal.media/files/b/0aab8b0b/GeV7OZ_C_WUe16KsAL0LN_rdKyfdRG.png" alt="LinkedIn banner example" loading="lazy">
+      <div class="card-body">
+        <h3>LinkedIn Company Banner</h3>
+        <p>Generated from one text prompt.</p>
+        <span class="platform">LinkedIn 1584×396</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://v3b.fal.media/files/b/0aab8b10/Onkn-ZMeVHV3jH3MtTnWQ_10zwtj1O.png" alt="Instagram story banner example" loading="lazy">
+      <div class="card-body">
+        <h3>Wellness Instagram Story</h3>
+        <p>Elegant brand aesthetic from a single prompt.</p>
+        <span class="platform">Instagram 1080×1920</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://v3b.fal.media/files/b/0aab8b10/kQwhbulvUqwDQ_XHhdkky_XLXzNdcM.png" alt="YouTube banner example" loading="lazy">
+      <div class="card-body">
+        <h3>Gaming Tech YouTube Banner</h3>
+        <p>Dark neon, optimized with safe-area spacing.</p>
+        <span class="platform">YouTube 2560×1440</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Why BannerGen?</h2>
+    <div class="feature-grid">
+      <div class="feature-item"><h3>6 Platforms</h3><p>Twitter/X, LinkedIn, Instagram, YouTube, Facebook — correct dimensions every time.</p></div>
+      <div class="feature-item"><h3>5 Design Styles</h3><p>Modern, Minimal, Bold, Elegant, Fun — one flag changes everything.</p></div>
+      <div class="feature-item"><h3>Brand Overlay</h3><p>Your brand + tagline automatically placed on every banner.</p></div>
+      <div class="feature-item"><h3>Batch Mode</h3><p>Generate 50 banners from a text file in one command.</p></div>
+      <div class="feature-item"><h3>Pay-What-You-Want</h3><p>$1 minimum. Full source code, MIT licensed.</p></div>
+      <div class="feature-item"><h3>No Lock-in</h3><p>Bring your own FAL key. No recurring charges.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Quick Start</h2>
+    <div class="install">
+      <pre><span class="comment"># Install</span>
+pip install bannergen-cli
+
+<span class="comment"># Set your API key</span>
+export FAL_KEY="your-key"
+
+<span class="comment"># Generate a banner</span>
+bannergen generate "Modern tech office with city view" \
+  --platform linkedin --brand "Acme Corp" --style bold</pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details open>
+        <summary>What do I get for $1+?</summary>
+        <p>The complete BannerGen CLI: source code, all platform templates, 5 styles, brand overlay, batch processing, and documentation. MIT licensed — use it in any project, personal or commercial.</p>
+      </details>
+      <details>
+        <summary>Does it require a subscription?</summary>
+        <p>No. You pay once on Gumroad and use your own FAL.ai API key. You only pay FAL for image generations, typically fractions of a cent per image.</p>
+      </details>
+      <details>
+        <summary>Can I see a sample before buying?</summary>
+        <p>Yes — the gallery above shows real outputs. The tool also runs locally, so the source is inspectable before you buy (it's Python).</p>
+      </details>
+      <details>
+        <summary>Do you make custom banners for my brand?</summary>
+        <p>Yes — custom AI-generated banners and OG images for $3 each. <a href="https://grantshatz.gumroad.com/l/rgbzfz" style="color:#58a6ff">Order a custom image →</a></p>
+      </details>
+    </div>
+  </section>
 </div>
 
-<h2>Quick Start</h2>
-<pre class="cmd"><span class="prompt">$</span> pip install bannergen-cli<br><span class="prompt">$</span> export FAL_KEY="your-key"<br><span class="prompt">$</span> bannergen generate "Modern tech office with city view" --platform linkedin --brand "Acme Corp"</pre>
-
-<h2>Sample Output</h2>
-<p><img src="sample_twitter_banner.png" alt="Sample Twitter banner" style="max-width:100%;border-radius:8px;border:1px solid #e1e4e8"></p>
-
-<h2>Payment</h2>
-<p><strong>Pro ($5)</strong> / <strong>Enterprise ($25)</strong></p>
-<p>Pay with crypto (ETH/ERC-20):</p>
-<pre style="font-size:.9em">0x478C6D0e0244eb09505F48AA93A3C33672D0B5E8</pre>
-
-<p><a class="btn" href="https://github.com/astra-intelligence/bannergen-cli">View on GitHub →</a></p>
-
 <footer>
-Built by Adventure Agent — an independent, self-financed AI entrepreneur.<br>
-Part of <a href="https://astraintelligence.co">Astra Intelligence Labs</a>.
+  <p><a href="https://github.com/astra-intelligence/bannergen-cli">View source on GitHub</a> · Part of <a href="https://astra-intelligence.github.io/adventure-products/">Adventure Products</a></p>
 </footer>
 </body>
 </html>
