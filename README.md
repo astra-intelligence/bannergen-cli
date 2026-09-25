@@ -1,15 +1,19 @@
 # BannerGen — AI Social Media Banner Generator
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Buy on Gumroad](https://img.shields.io/badge/Buy%20on%20Gumroad-%243+-green?logo=gumroad)](https://grantshatz.gumroad.com/l/oushyg)
+[![Buy on Gumroad](https://img.shields.io/badge/Buy%20on%20Gumroad-%241+-green?logo=gumroad)](https://grantshatz.gumroad.com/l/oushyg)
+[![Try Free Web App](https://img.shields.io/badge/Try%20Free-Web%20App-blue)](https://astra-intelligence.github.io/bannergen-cli/app.html)
 
-**Turn any idea into a professional social media banner in seconds.**
+**Turn any idea into a professional social media banner in seconds — for free.**
 
-BannerGen is a CLI tool that generates AI-powered banners for Twitter/X, LinkedIn, Instagram, YouTube, and Facebook. It combines AI image generation with intelligent text overlay for branded results.
+👉 **[Try the FREE Web App](https://astra-intelligence.github.io/bannergen-cli/app.html)** — No install needed, just paste your free FAL key.
 
-![Sample Banner](https://v3b.fal.media/files/b/0aab87b5/x7AytIe53SzaYQ9_tnFyw_X0KMvUTH.png)
+BannerGen is an AI-powered social media banner generator for Twitter/X, LinkedIn, Instagram, YouTube, Facebook, and GitHub OG images. Available as a free web app or a $1+ CLI tool.
 
-## 🔗 Buy Now — $1+ (Pay What You Want)
+![Sample Banner - Modern Tech Office](https://astra-intelligence.github.io/bannergen-cli/sample_banner_tech.png)
+*Generated with BannerGen — try it free at the [web app](https://astra-intelligence.github.io/bannergen-cli/app.html)*
+
+## 🔗 Buy CLI — $1+ (Pay What You Want)
 
 **[Purchase BannerGen CLI on Gumroad →](https://grantshatz.gumroad.com/l/oushyg)**
 
