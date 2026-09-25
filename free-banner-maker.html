@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Banner Maker — Social Media Banners, No Sign-up</title>
+<meta name="description" content="Create beautiful social media banners for Twitter/X, LinkedIn, Instagram, YouTube, and Facebook. Free, no sign-up, no API key needed. Download SVG instantly.">
+<meta property="og:title" content="Free Banner Maker — Create Social Media Banners Instantly">
+<meta property="og:description" content="No sign-up, no API key. Create banners for every platform and download as SVG.">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+header { background: linear-gradient(135deg, #1f2937, #111827); padding: 2.5rem 1rem 2rem; text-align: center; border-bottom: 1px solid #30363d; }
+header h1 { font-size: 2rem; background: linear-gradient(90deg, #58a6ff, #3fb950); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+header p { color: #8b949e; margin-top: 0.5rem; }
+.container { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.controls { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 1.5rem; }
+.controls h2 { font-size: 1.1rem; margin-bottom: 1rem; color: #58a6ff; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: 0.85rem; color: #8b949e; margin-bottom: 0.3rem; }
+.form-group input, .form-group select { width: 100%; padding: 0.6rem 0.8rem; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9; font-size: 0.9rem; }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: #58a6ff; }
+.color-row { display: flex; gap: 0.75rem; align-items: center; }
+.color-row input[type="color"] { width: 44px; height: 44px; border: 2px solid #30363d; border-radius: 8px; cursor: pointer; background: none; padding: 2px; }
+.color-row .color-hex { font-size: 0.8rem; color: #8b949e; font-family: monospace; }
+.preview-area { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 1rem; display: flex; flex-direction: column; }
+.preview-area h2 { font-size: 1.1rem; margin-bottom: 0.75rem; color: #58a6ff; }
+.preview-container { flex: 1; display: flex; align-items: center; justify-content: center; background: #0d1117; border-radius: 8px; overflow: hidden; min-height: 200px; }
+.preview-container svg { max-width: 100%; max-height: 400px; }
+.btn { display: inline-block; padding: 0.7rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: transform 0.15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: linear-gradient(135deg, #238636, #2ea043); color: #fff; width: 100%; margin-top: 0.5rem; }
+.btn-secondary { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; width: 100%; margin-top: 0.5rem; }
+.dimension-label { font-size: 0.75rem; color: #484f58; text-align: center; margin-top: 0.5rem; }
+.upsell-banner { margin-top: 1rem; background: linear-gradient(135deg, #1a2332, #162030); border: 1px solid #30363d; border-radius: 10px; padding: 1rem; text-align: center; }
+.upsell-banner h3 { font-size: 0.95rem; color: #e6edf3; }
+.upsell-banner p { font-size: 0.8rem; color: #8b949e; margin: 0.3rem 0; }
+.upsell-banner a { color: #58a6ff; text-decoration: none; font-weight: 600; }
+.upsell-banner a:hover { text-decoration: underline; }
+footer { text-align: center; padding: 2rem; color: #484f58; border-top: 1px solid #21262d; font-size: 0.85rem; }
+footer a { color: #58a6ff; text-decoration: none; }
+@media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Free Banner Maker</h1>
+  <p>Create professional social media banners — no sign-up, no API key needed.</p>
+</header>
+<div class="container">
+  <div class="controls">
+    <h2>Banner Settings</h2>
+    <div class="form-group">
+      <label>Platform</label>
+      <select id="platform">
+        <option value="twitter">X / Twitter (1500×500)</option>
+        <option value="linkedin" selected>LinkedIn Banner (1584×396)</option>
+        <option value="instagram">Instagram Post (1080×1080)</option>
+        <option value="instagram-story">Instagram Story (1080×1920)</option>
+        <option value="youtube">YouTube Banner (2560×1440)</option>
+        <option value="youtube-thumb">YouTube Thumbnail (1280×720)</option>
+        <option value="facebook">Facebook Cover (1640×624)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Brand Name</label>
+      <input type="text" id="brand" value="My Brand" placeholder="Your brand name">
+    </div>
+    <div class="form-group">
+      <label>Tagline / Subtitle</label>
+      <input type="text" id="tagline" value="Building the future" placeholder="Optional tagline">
+    </div>
+    <div class="form-group">
+      <label>Layout Style</label>
+      <select id="style">
+        <option value="modern">Modern — clean, professional</option>
+        <option value="minimal">Minimal — simple, elegant</option>
+        <option value="bold">Bold — high contrast, striking</option>
+        <option value="gradient">Gradient — smooth color blend</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Colors</label>
+      <div class="color-row">
+        <input type="color" id="color1" value="#1a73e8">
+        <span class="color-hex" id="color1-hex">#1a73e8</span>
+        <input type="color" id="color2" value="#0d1117">
+        <span class="color-hex" id="color2-hex">#0d1117</span>
+        <input type="color" id="color3" value="#ffffff">
+        <span class="color-hex" id="color3-hex">#ffffff</span>
+      </div>
+      <div style="display:flex;gap:0.5rem;margin-top:0.3rem;font-size:0.75rem;color:#484f58;">
+        <span>Primary</span>
+        <span>Background</span>
+        <span>Text</span>
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="downloadSVG()">Download SVG</button>
+    <button class="btn btn-secondary" onclick="downloadPNG()">Download PNG</button>
+  </div>
+  <div class="preview-area">
+    <h2>Preview</h2>
+    <div class="preview-container" id="preview">
+      <!-- SVG renders here -->
+    </div>
+    <div class="dimension-label" id="dimension-label">1584 × 396 px — LinkedIn Banner</div>
+    <div class="upsell-banner">
+      <h3>Want AI-generated banners?</h3>
+      <p>Get BannerGen CLI — AI-powered banners with 5 design styles, batch mode, and platform-optimized templates.</p>
+      <a href="https://grantshatz.gumroad.com/l/oushyg" target="_blank">Get BannerGen CLI for $1+ →</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <p><a href="https://astra-intelligence.github.io/bannergen-cli/">BannerGen CLI</a> — AI-powered social media banners from your terminal.</p>
+</footer>
+
+<script>
+const platforms = {
+  twitter:          { w: 1500, h: 500,  label: 'Twitter' },
+  linkedin:         { w: 1584, h: 396,  label: 'LinkedIn' },
+  instagram:        { w: 1080, h: 1080, label: 'Instagram' },
+  "instagram-story":{ w: 1080, h: 1920, label: 'Instagram Story' },
+  youtube:          { w: 2560, h: 1440, label: 'YouTube' },
+  "youtube-thumb":  { w: 1280, h: 720,  label: 'YouTube Thumbnail' },
+  facebook:         { w: 1640, h: 624,  label: 'Facebook' },
+};
+
+function render() {
+  const plat = document.getElementById('platform').value;
+  const brand = document.getElementById('brand').value || 'Your Brand';
+  const tagline = document.getElementById('tagline').value || '';
+  const style = document.getElementById('style').value;
+  const c1 = document.getElementById('color1').value;
+  const c2 = document.getElementById('color2').value;
+  const c3 = document.getElementById('color3').value;
+
+  const p = platforms[plat];
+  const w = p.w, h = p.h;
+
+  // Scale for preview
+  const maxW = 600, maxH = 300;
+  const scale = Math.min(maxW / w, maxH / h);
+  const sw = Math.round(w * scale), sh = Math.round(h * scale);
+
+  let defs = '';
+  let bgEl = '';
+
+  if (style === 'gradient') {
+    defs = `<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="${c1}" />
+      <stop offset="100%" stop-color="${c2}" />
+    </linearGradient>`;
+    bgEl = `<rect width="${w}" height="${h}" fill="url(#bg)" />`;
+  } else if (style === 'minimal') {
+    bgEl = `<rect width="${w}" height="${h}" fill="${c2}" />`;
+    defs = `<linearGradient id="accentLine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="${c1}" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="${c1}" stop-opacity="0" />
+    </linearGradient>`;
+  } else if (style === 'bold') {
+    bgEl = `<rect width="${w}" height="${h}" fill="${c1}" />`;
+    defs = `<clipPath id="diag"><polygon points="0,0 ${w},0 ${w},${h} 0,${h}"/></clipPath>`;
+  } else { // modern
+    defs = `<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="${c2}" />
+      <stop offset="100%" stop-color="${c1}" stop-opacity="0.85" />
+    </linearGradient>`;
+    bgEl = `<rect width="${w}" height="${h}" fill="url(#bg)" />`;
+  }
+
+  // Accent elements
+  let accents = '';
+  if (style === 'modern') {
+    accents = `<circle cx="${w*0.85}" cy="${h*0.15}" r="${Math.min(w,h)*0.12}" fill="${c1}" opacity="0.2"/>
+    <circle cx="${w*0.92}" cy="${h*0.25}" r="${Math.min(w,h)*0.08}" fill="${c1}" opacity="0.15"/>`;
+  } else if (style === 'minimal') {
+    accents = `<rect x="0" y="0" width="8" height="${h}" fill="${c1}"/>`;
+  } else if (style === 'bold') {
+    accents = `<polygon points="0,0 ${w*0.6},0 ${w*0.3},${h}" fill="${c2}" opacity="0.2"/>
+    <rect x="${w*0.85}" y="0" width="${w*0.15}" height="${h}" fill="#fff" opacity="0.08"/>`;
+  } else if (style === 'gradient') {
+    accents = `<circle cx="${w*0.15}" cy="${h*0.8}" r="${Math.min(w,h)*0.3}" fill="${c1}" opacity="0.1"/>
+    <circle cx="${w*0.9}" cy="${h*0.1}" r="${Math.min(w,h)*0.2}" fill="#fff" opacity="0.05"/>`;
+  }
+
+  // Text sizing
+  const brFS = Math.round(Math.min(w, h) * 0.08);
+  const tagFS = Math.round(Math.min(w, h) * 0.035);
+
+  // Brand text
+  let textY = h * (style === 'bold' ? 0.55 : 0.5);
+  let textX = style === 'minimal' ? w * 0.06 : w * 0.08;
+
+  let textColor = c3;
+  if (style === 'bold') textColor = '#ffffff';
+
+  const textEl = `<text x="${textX}" y="${textY}" fill="${textColor}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="${brFS}" font-weight="700">
+    ${brand.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</text>`;
+
+  let tagEl = '';
+  if (tagline) {
+    const tagY = textY + brFS * 1.3;
+    tagEl = `<text x="${textX}" y="${tagY}" fill="${textColor}" opacity="0.75" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="${tagFS}" font-weight="400">
+      ${tagline.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</text>`;
+  }
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${sw}" height="${sh}">
+    <defs>${defs}</defs>
+    ${bgEl}
+    ${accents}
+    ${textEl}
+    ${tagEl}
+  </svg>`;
+
+  document.getElementById('preview').innerHTML = svg;
+  document.getElementById('dimension-label').textContent = `${w} × ${h} px — ${p.label}`;
+  document.getElementById('color1-hex').textContent = c1;
+  document.getElementById('color2-hex').textContent = c2;
+  document.getElementById('color3-hex').textContent = c3;
+}
+
+// Listen to changes
+document.querySelectorAll('input, select').forEach(el => {
+  el.addEventListener('input', render);
+  el.addEventListener('change', render);
+});
+
+function getSVGString() {
+  const plat = document.getElementById('platform').value;
+  const brand = document.getElementById('brand').value || 'Your Brand';
+  const tagline = document.getElementById('tagline').value || '';
+  const style = document.getElementById('style').value;
+  const c1 = document.getElementById('color1').value;
+  const c2 = document.getElementById('color2').value;
+  const c3 = document.getElementById('color3').value;
+  const p = platforms[plat];
+  const w = p.w, h = p.h;
+
+  let defs = '', bgEl = '';
+  if (style === 'gradient') {
+    defs = `<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient>`;
+    bgEl = `<rect width="${w}" height="${h}" fill="url(#bg)"/>`;
+  } else if (style === 'minimal') {
+    bgEl = `<rect width="${w}" height="${h}" fill="${c2}"/>`;
+  } else if (style === 'bold') {
+    bgEl = `<rect width="${w}" height="${h}" fill="${c1}"/>`;
+  } else {
+    defs = `<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c1}" stop-opacity="0.85"/></linearGradient>`;
+    bgEl = `<rect width="${w}" height="${h}" fill="url(#bg)"/>`;
+  }
+
+  let accents = '';
+  if (style === 'modern') {
+    accents = `<circle cx="${w*0.85}" cy="${h*0.15}" r="${Math.min(w,h)*0.12}" fill="${c1}" opacity="0.2"/><circle cx="${w*0.92}" cy="${h*0.25}" r="${Math.min(w,h)*0.08}" fill="${c1}" opacity="0.15"/>`;
+  } else if (style === 'minimal') {
+    accents = `<rect x="0" y="0" width="8" height="${h}" fill="${c1}"/>`;
+  } else if (style === 'bold') {
+    accents = `<polygon points="0,0 ${w*0.6},0 ${w*0.3},${h}" fill="${c2}" opacity="0.2"/><rect x="${w*0.85}" y="0" width="${w*0.15}" height="${h}" fill="#fff" opacity="0.08"/>`;
+  } else if (style === 'gradient') {
+    accents = `<circle cx="${w*0.15}" cy="${h*0.8}" r="${Math.min(w,h)*0.3}" fill="${c1}" opacity="0.1"/><circle cx="${w*0.9}" cy="${h*0.1}" r="${Math.min(w,h)*0.2}" fill="#fff" opacity="0.05"/>`;
+  }
+
+  const brFS = Math.round(Math.min(w, h) * 0.08);
+  const tagFS = Math.round(Math.min(w, h) * 0.035);
+  const textY = h * (style === 'bold' ? 0.55 : 0.5);
+  const textX = style === 'minimal' ? w * 0.06 : w * 0.08;
+  const textColor = style === 'bold' ? '#ffffff' : c3;
+
+  let textEl = `<text x="${textX}" y="${textY}" fill="${textColor}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="${brFS}" font-weight="700">${brand.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</text>`;
+  let tagEl = '';
+  if (tagline) {
+    tagEl = `<text x="${textX}" y="${textY + brFS * 1.3}" fill="${textColor}" opacity="0.75" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="${tagFS}" font-weight="400">${tagline.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</text>`;
+  }
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"><defs>${defs}</defs>${bgEl}${accents}${textEl}${tagEl}</svg>`;
+}
+
+function downloadSVG() {
+  const svgStr = getSVGString();
+  const blob = new Blob([svgStr], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `banner-${document.getElementById('platform').value}.svg`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function downloadPNG() {
+  const plat = document.getElementById('platform').value;
+  const p = platforms[plat];
+  const canvas = document.createElement('canvas');
+  canvas.width = p.w;
+  canvas.height = p.h;
+  const ctx = canvas.getContext('2d');
+
+  const img = new Image();
+  const svgStr = getSVGString();
+  const blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+
+  img.onload = function() {
+    ctx.drawImage(img, 0, 0, p.w, p.h);
+    const a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png');
+    a.download = `banner-${plat}.png`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+  img.src = url;
+}
+
+// Initial render
+render();
+</script>
+</body>
+</html>

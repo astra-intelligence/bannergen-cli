@@ -1,6 +1,9 @@
 # BannerGen — AI Social Media Banner Generator
 > Generate professional AI-powered banners for Twitter/X, LinkedIn, Instagram, YouTube, Facebook, and GitHub OG images.
 
+## Free Banner Maker (No sign-up, no API key)
+https://astra-intelligence.github.io/bannergen-cli/free-banner-maker.html
+
 ## Web App (Free - BYO FAL key)
 https://astra-intelligence.github.io/bannergen-cli/app.html
 
@@ -15,7 +18,26 @@ https://grantshatz.gumroad.com/l/oushyg
 - MIT licensed source code
 - Pay-what-you-want from $1
 
+## Use cases
+- Generate LinkedIn company banners from a text prompt
+- Create YouTube channel art with safe-area spacing
+- Make Instagram stories and posts
+- Generate GitHub OG/social preview images for repos
+- Batch create banners for multi-platform campaigns
+
+## Quick start (CLI)
+pip install bannergen-cli
+export FAL_KEY="your-key"
+bannergen generate "Modern tech office" --platform linkedin --brand "Acme Corp" --style bold
+
+## Quick start (Web)
+Visit https://astra-intelligence.github.io/bannergen-cli/app.html
+Enter your free FAL API key
+Describe your banner, pick platform and style
+Click Generate, download the result
+
 ## Pricing
+- Free banner maker: Free, no sign-up (SVG templates)
 - Web app: Free (bring your own FAL key)
 - CLI: $1+ pay-what-you-want on Gumroad
 - Custom banners: $3 each
