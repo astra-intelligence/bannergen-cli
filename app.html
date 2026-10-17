@@ -357,5 +357,57 @@ footer a { color: #58a6ff; text-decoration: none; }
   });
 })();
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "BannerGen Web App",
+      "alternateName": "BannerGen Web — AI Social Media Banner Generator",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Any browser",
+      "url": "https://astra-intelligence.github.io/bannergen-cli/app.html",
+      "description": "Free online AI social media banner generator. Create professional banners for Twitter/X, LinkedIn, Instagram, YouTube, and Facebook instantly. No install needed.",
+      "image": "https://astra-intelligence.github.io/bannergen-cli/og-image.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "1.00",
+        "priceCurrency": "USD",
+        "url": "https://grantshatz.gumroad.com/l/oushyg",
+        "availability": "https://schema.org/InStock"
+      },
+      "featureList": [
+        "Platform-accurate templates: Twitter/X, LinkedIn, Instagram, YouTube, Facebook",
+        "AI-powered generation in your browser",
+        "No install, no setup",
+        "Free web app; CLI with extra features from $1"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is BannerGen Web free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — the web app is free to use. The BannerGen CLI (with source code, all templates, 5 styles, brand overlay, and batch processing) is available on Gumroad for $1+."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an API key?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The web app handles generation for you. The CLI uses your own FAL.ai API key so you only pay for image generations, typically fractions of a cent per image."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 </body>
 </html>
